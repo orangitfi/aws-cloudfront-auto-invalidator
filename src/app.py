@@ -6,9 +6,11 @@ import time
 
 cloudfront_client = boto3.client('cloudfront')
 
+REGION = 'eu-north-1'
+
 def get_cloudfront_distribution_id(bucket):
-    
-    bucket_origin = bucket + '.s3.amazonaws.com'
+
+    bucket_origin = bucket + '.s3-website.' + REGION + '.amazonaws.com'
     cf_distro_id = None
 
     # Create a reusable Paginator
@@ -42,7 +44,7 @@ def lambda_handler(event, context):
 
     if not key.startswith('/'):
         key = '/' + key
- 
+
     cf_distro_id = get_cloudfront_distribution_id(bucket)
 
     if cf_distro_id:

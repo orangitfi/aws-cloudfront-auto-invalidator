@@ -5,7 +5,7 @@ DEPLOY_BUCKET=$2
 CONTENT_BUCKET=$3
 PROFILE=$4
 
-REGION=us-east-1
+REGION=eu-north-1
 
 STACK_NAME=aws-cloudfront-auto-invalidator
 
